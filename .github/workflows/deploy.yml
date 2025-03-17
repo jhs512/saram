@@ -29,5 +29,5 @@ jobs:
           working-directory: /
           comment: Deploy
           command: |
-            docker login ghcr.io -u jhs512 --password "${{ secrets.GITHUB_TOKEN }}"
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
             docker pull ghcr.io/jhs512/app20250317:v0.0.7
